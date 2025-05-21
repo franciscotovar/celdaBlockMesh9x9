@@ -1,0 +1,35 @@
+centrifugalTest
+{
+    name            centrifugalTest;
+    type            vectorCodedSource;
+    active          true;
+
+    vectorCodedSourceCoeffs
+    {
+        selectionMode   all;
+        fields          (U);
+
+        injectionRateSuSp
+        {
+            U   (0 0 0);
+        }
+
+        codeInclude
+        #{
+            #include "fvCFD.H"
+        #};
+
+        codeCorrect
+        #{
+        #};
+
+        codeAddSup
+        #{
+            Info << "\\n codeAddSup ejecutado correctamente!\\n";
+        #};
+
+        codeConstrain
+        #{
+        #};
+    }
+}

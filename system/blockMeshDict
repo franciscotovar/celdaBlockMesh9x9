@@ -1,0 +1,205 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | foam-extend: Open Source CFD                    |
+|  \\    /   O peration     | Version:     3.2                                |
+|   \\  /    A nd           | Web:         http://www.foam-extend.org         |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+scale 1e-6;
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//vertices definition
+
+vertices
+(    
+    (0 300 50.0) // Vertex a0b = 0 
+    (200 300 50.0) // Vertex a1b = 1 
+    (300 300 50.0) // Vertex a2b = 2 
+    (400 300 50.0) // Vertex a3b = 3 
+
+    
+    (0 200 50.0) // Vertex a10b = 4 
+    (200 200 50.0) // Vertex a11b = 5 
+    (300 200 50.0) // Vertex a12b = 6 
+    (400 200 50.0) // Vertex a13b = 7 
+
+    (0 100 50.0) // Vertex a20b = 8 
+    (200 100 50.0) // Vertex a21b = 9 
+    (300 100 50.0) // Vertex a22b = 10 
+    (400 100 50.0) // Vertex a23b = 11 
+    
+    (0 0 50.0) // Vertex a30b = 12 
+    (200 0 50.0) // Vertex a31b = 13 
+    (300 0 50.0) // Vertex a32b = 14 
+    (400 0 50.0) // Vertex a33b = 15 
+
+
+    (0 300 0.0) // Vertex a0t = 16 
+    (200 300 0.0) // Vertex a1t = 17 
+    (300 300 0.0) // Vertex a2t = 18 
+    (400 300 0.0) // Vertex a3t = 19 
+
+    
+    (0 200 0.0) // Vertex a10t = 20 
+    (200 200 0.0) // Vertex a11t = 21 
+    (300 200 0.0) // Vertex a12t = 22 
+    (400 200 0.0) // Vertex a13t = 23 
+
+    
+    (0 100 0.0) // Vertex a20t = 24 
+    (200 100 0.0) // Vertex a21t = 25 
+    (300 100 0.0) // Vertex a22t = 26 
+    (400 100 0.0) // Vertex a23t = 27 
+
+    
+    (0 0 0.0) // Vertex a30t = 28 
+    (200 0 0.0) // Vertex a31t = 29 
+    (300 0 0.0) // Vertex a32t = 30 
+    (400 0 0.0) // Vertex a33t = 31 
+   
+);
+
+//blockDefinition
+blocks
+(
+    // block1
+    hex (4 5 9 8 20 21 25 24) pdms1
+    (10 10 1)
+    simpleGrading (1 1 1)
+    
+    // block2
+    hex (5 6 10 9 21 22 26 25) pdms2
+    (10 10 1)
+    simpleGrading (1 1 1)
+    
+    // block3
+    hex (6 7 11 10 22 23 27 26) pdms3
+    (10 10 1)
+    simpleGrading (1 1 1)
+    
+    // block4
+    hex (2 3 7 6 18 19 23 22) pdms4 //tjup
+    (10 10 1)
+    simpleGrading (1 1 1)
+    
+    hex (10 11 15 14 26 27 31 30) pdms5 //tjdown
+    (10 10 1)
+    simpleGrading (1 1 1)
+
+   
+);
+
+
+//BC
+patches
+(
+        wall walls
+    (
+    
+	(4 5 21 20)
+	(5 6 22 21)
+	(6 2 18 22) 
+	(3 7 23 19)   
+	(7 11 27 23) 
+	
+	(11 15 31 27)
+	(8 9 25 24)
+	(9 10 26 25)
+	(10 14 30 26)
+		
+    )
+    
+    patch inlet 
+	(
+		(4 8 24 20)
+
+	)   
+
+	
+	patch outlet 
+	(
+		(2 3 19 18)
+		(15 14 30 31)
+
+	) 
+
+    empty back
+    (
+      (8 4 5 9) 
+      (9 5 6 10) 
+      (10 6 7 11)
+
+      (6 2 3 7) 
+      (14 10 11 15) 
+          
+      )
+
+      empty front
+      (
+      (24 25 21 20) 
+      (25 26 22 21) 
+      (26 27 23 22)
+
+      (22 23 19 18) 
+      (30 31 27 26) 
+         
+      )
+
+ 
+    
+);
+

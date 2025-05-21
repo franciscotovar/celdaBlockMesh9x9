@@ -1,0 +1,23 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # run from this directory
+
+echo "--------"
+echo "Cleaning case ..."
+echo "Removing backup files"
+rm -r 0.0*
+rm -r 0.1*
+rm -r 0.2*
+rm -r 0.3*
+rm -r 0.4*
+rm -r 0.5*
+rm -r 0.6*
+rm -r 0.7*
+rm -r 0.8*
+rm -r 0.8*
+rm -r 0.9*
+rm -r 1.*
+rm -r 2.*
+rm log.*
+echo "--------"
+
+# ----------------------------------------------------------------- end-of-file
